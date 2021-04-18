@@ -14,8 +14,9 @@
 ## Step
 ```
 Using HomeBrew:
-brew install swi-prolog
-The latest git version of SWI-Prolog can be installed with this command: brew install swi-prolog --HEAD
+    brew install swi-prolog
+The latest git version of SWI-Prolog can be installed with this command: 
+    brew install swi-prolog --HEAD
 
 ```
 ```
