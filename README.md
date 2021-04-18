@@ -7,6 +7,9 @@
 | ------------- | ------------- |
 | 1651049  | Chu Đức Khánh  |
 | 1651009   | Giảng Thanh Danh |
+| 1751062   | Lê Anh Quốc Duy |
+| 1651032   | Nguyễn Đặng Thế Quang|
+
 
 ## Step
 ```
@@ -23,6 +26,20 @@ Follow link: http://macappstore.org/swi-prolog/
 ```
 To install swi-prolig in Window:
 Follow link: https://www.swi-prolog.org/download/stable
+```
+
+# Run the program
+```
+cd Task01_Querying_The_Family 
+swipl Project02_Logic_Task01.pl 
+```
+
+```
+Test the program by enter the query in follow:
+mother(X, William).
+or mother(X, 'Prince William').
+not mother(X, william).
+=> query: queru(X, Upcase) or query(X, 'String');
 ```
 # ReferReference 
 [Prolog link] http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1

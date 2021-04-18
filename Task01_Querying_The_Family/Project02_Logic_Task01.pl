@@ -1,5 +1,3 @@
-% consult('construct.pl').
-
 % Royal Family of  British Royal Family History
 
 % male
@@ -71,12 +69,12 @@ born('Mia Grance Tindall', '2014').
 died('Princess Diana', '1997').
 
 %parent
-parent('Queen Elizabeth II', 'Princess Charles').
+parent('Queen Elizabeth II', 'Prince Charles').
 parent('Queen Elizabeth II', 'Princess Anne').
 parent('Queen Elizabeth II', 'Princess Andrew').
 parent('Queen Elizabeth II', 'Princess Edward').
 
-parent('Prince Phillip', 'Princess Charles').
+parent('Prince Phillip', 'Prince Charles').
 parent('Prince Phillip', 'Princess Anne').
 parent('Prince Phillip', 'Princess Andrew').
 parent('Prince Phillip', 'Princess Edward').
@@ -111,8 +109,8 @@ parent('Autumn Kelly', 'Isla Phillips').
 parent('Peter Phillips', 'Savannash Phillips').
 parent('Peter Phillips', 'Isla Phillips').
 
-parent('Zara Phillips', 'Mia Grance').
-parent('Mike Tindall', 'Mia Grance').
+parent('Zara Phillips', 'Mia Grance Tindall').
+parent('Mike Tindall', 'Mia Grance Tindall').
 
 % married
 married('Queen Elizabeth II', 'Prince Phillips').
@@ -125,7 +123,7 @@ married('Autumn Kelly', 'Peter Phillips').
 married('Zara Phillips', 'Mike Tindall').
 
 %divorced
-divorced('Princess Charles', 'Camilla Parker Bowles').
+divorced('Prince Charles', 'Camilla Parker Bowles').
 divorced('Princess Anne', 'Timothy Laurence').
 
 
@@ -147,14 +145,14 @@ son(Child, Parent):- child(Child, Parent), male(Child).
 % therefor Child is a daughter of Parent if she is a child of Parent, and if she is female
 daughter(Child, Parent):- child(Child, Parent), female(Child).
 
-% GC has a grand parent GP if and only if P has a child GP and Y has a child P. 
-grandparent(GP, GC):- child(GP, P), child(P, GC).
+% GC has a grandparent GP if and only if P has a child GC and GP has a child P. 
+grandparent(GP, GC):- parent(GP, P), parent(P, GC).
 
 %  Special case of grandparent, but this time, GM must be female
-grandmother(GM, GC):- child(GM, P), child(P, GC), female(GM).
+grandmother(GM, GC):- parent(GM, P), parent(P, GC), female(GM).
 
 %  Special case of grandparent, but this time, GF must be male
-grandfather(GF, GC):- child(GF, P), child(P, GC), male(GC).
+grandfather(GF, GC):- parent(GF, P), parent(P, GC), male(GC).
 
 grandchild(GC, GP):- grandparent(GP, GC).
 
@@ -170,7 +168,7 @@ husband(Person, Wife):- spouse(Person, Wife), male(Person).
 
 wife(Person, Husband):- spouse(Person, Husband), female(Person).
 
-%2 can be siblings if they share a parent, and are not themselves to eachother
+% 2 can be siblings if they share a parent, and are not themselves to each other
 sibling(Person1, Person2):- child(Person1, P), child(Person2, P), Person1\=Person2.
 
 %  specialization of sibling, but narrowing on gender
@@ -191,9 +189,7 @@ aunt(Person1, Person2):- child(Person1, P), spouse(Person2, P), female(Person2).
 
 nephew(Person1, Person2):- sibling(Person2, P), son(P, Person1).
 
-nice(Person1, Person2):- sibling(Person2, P), daughter(P, Person1).
+niece(Person1, Person2):- sibling(Person2, P), daughter(P, Person1).
 
-firstCousin(Child1, Child2):- grandparent(GP, Child1), grandparent(GP, Child2), sibling(Child1, Child2).
-
-
+% firstCousin(Child, Person):-  grandparent(GP, Child), grandparent(GP, Person), \+sibling(Child, Person), Child\=Person.
 
