@@ -7,7 +7,6 @@
 | ------------- | ------------- |
 | 1651049  | Chu Đức Khánh  |
 | 1651009   | Giảng Thanh Danh |
-| 1751062   | Lê Quốc Anh Duy|
 
 ## Step
 ```
@@ -26,9 +25,6 @@ To install swi-prolig in Window:
 Follow link: https://www.swi-prolog.org/download/stable
 ```
 # ReferReference 
-```
-http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1
-```
-```
-https://www.swi-prolog.org
-```
+[a link] http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1
+
+[a link] https://www.swi-prolog.org
