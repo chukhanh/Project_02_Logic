@@ -1,3 +1,5 @@
+% consult('construct.pl').
+
 % Royal Family of  British Royal Family History
 
 % male
@@ -127,27 +129,31 @@ divorced('Princess Charles', 'Camilla Parker Bowles').
 divorced('Princess Anne', 'Timothy Laurence').
 
 
-
-
-% father(Parent, Child): father of Child
+% father(Parent, Child): Parent is a father of child if he is parent of Child, and if he is male
 father(Parent, Child):- parent(Parent, Child), male(Parent).
 
-% mother(Parent, Child): Mother of Child
+% mother(Parent, Child): Parent is a mother of child if she is parent of Child , and if she is famale
 mother(Parent, Child):- parent(Parent, Child), female(Parent).
 
 % child(Child, Parent): all children of mother or father
+% narrowing case of `child`, but also taking into account gender
 child(Child, Parent):- parent(Parent, Child), Child\=Parent.
 
+% therefor Child is a son of Parent if he is a child of Parent, and if he is male
 % son(Child, Parent): All sons of mother or father
 son(Child, Parent):- child(Child, Parent), male(Child).
 
 % daughter(Child, Parent): all daughters of mother or father.
+% therefor Child is a daughter of Parent if she is a child of Parent, and if she is female
 daughter(Child, Parent):- child(Child, Parent), female(Child).
 
+% GC has a grand parent GP if and only if P has a child GP and Y has a child P. 
 grandparent(GP, GC):- child(GP, P), child(P, GC).
 
-grandmother(GF, GC):- child(GF, P), child(P, GC), female(GC).
+%  Special case of grandparent, but this time, GM must be female
+grandmother(GM, GC):- child(GM, P), child(P, GC), female(GM).
 
+%  Special case of grandparent, but this time, GF must be male
 grandfather(GF, GC):- child(GF, P), child(P, GC), male(GC).
 
 grandchild(GC, GP):- grandparent(GP, GC).
@@ -156,25 +162,32 @@ grandson(GS, GP):- grandchild(GS, GP), male(GS).
 
 granddaught(GD, GP):- grandchild(GD, GP), female(GD).
 
+% i.e, spouse(x, y) = spouse (y, x)
+% therefore 2 people are spouses if and only if they are married to each other.
 spouse(Husband, Wife):- married(Husband, Wife); married(Wife, Husband).
 
 husband(Person, Wife):- spouse(Person, Wife), male(Person).
 
 wife(Person, Husband):- spouse(Person, Husband), female(Person).
 
+%2 can be siblings if they share a parent, and are not themselves to eachother
 sibling(Person1, Person2):- child(Person1, P), child(Person2, P), Person1\=Person2.
 
+%  specialization of sibling, but narrowing on gender
 brother(Person, Sibling):- sibling(Person, Sibling), male(Sibling).
-
 sister(Person, Sibling):- sibling(Person, Sibling), female(Sibling).
 
+% blood case
 uncle(Person1, Person2):- child(Person1, P), brother(Person2, P).
-
+% marriage case:
 uncle(Person1, Person2):- child(Person1, P), spouse(Person2, P), male(Person2).
 
+%  Person2 has aunt Person1 if and only if Person1 has parent P, and Person2 is sister to P (which already
+%  takes into account for gender, or Person2 is spouse to P
+% blood case:
 aunt(Person1, Person2):- child(Person1, P), sister(Person2, P).
-
 aunt(Person1, Person2):- child(Person1, P), spouse(Person2, P), female(Person2).
+
 
 nephew(Person1, Person2):- sibling(Person2, P), son(P, Person1).
 
@@ -182,5 +195,5 @@ nice(Person1, Person2):- sibling(Person2, P), daughter(P, Person1).
 
 firstCousin(Child1, Child2):- grandparent(GP, Child1), grandparent(GP, Child2), sibling(Child1, Child2).
 
-%  ancestor(Person1, Person2):- child(Person1, P), child(P, Person2); ancestor(Person2, P), Person1\=Person2, Person1\=sibling(Person1, Person2).
+
 
