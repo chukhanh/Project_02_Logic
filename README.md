@@ -21,6 +21,14 @@ To install swi-prolog in MacOs:
 Follow link: http://macappstore.org/swi-prolog/
 ```
 
+```
+To install swi-prolig in Window:
+Follow link: https://www.swi-prolog.org/download/stable
+```
 # ReferReference 
+```
 http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1
+```
+```
 https://www.swi-prolog.org
+```
