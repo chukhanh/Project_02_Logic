@@ -25,6 +25,6 @@ To install swi-prolig in Window:
 Follow link: https://www.swi-prolog.org/download/stable
 ```
 # ReferReference 
-[a link] http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1
+[Prolog link] http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1
 
-[a link] https://www.swi-prolog.org
+[swi link] https://www.swi-prolog.org
