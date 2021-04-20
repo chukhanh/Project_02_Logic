@@ -43,6 +43,10 @@ not mother(X, william).
 => query: queru(X, Upcase) or query(X, 'String');
 ```
 # ReferReference 
+## Task 01 Querying The Family
 [Prolog link] http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1
 
 [swi link] https://www.swi-prolog.org
+
+## Task 02 Robinson resolution alogorithm
+[Resolution Link ] https://www.tutorialandexample.com/resolution-method-in-ai/
