@@ -191,5 +191,5 @@ nephew(Person1, Person2):- sibling(Person2, P), son(P, Person1).
 
 niece(Person1, Person2):- sibling(Person2, P), daughter(P, Person1).
 
-% firstCousin(Child, Person):-  grandparent(GP, Child), grandparent(GP, Person), \+sibling(Child, Person), Child\=Person.
+firstCousin(Child, Person):-  grandparent(GP, Child), grandparent(GP, Person), \+sibling(Child, Person), Child\=Person.
 
