@@ -40,7 +40,7 @@ swipl Project02_Logic_Task01.pl
 Test the program by enter the query in follow:
 query: query(X, Upcase) or query(X, 'String');
 1 mother(X, William).
-2 **(Expect)**  mother(X, 'Prince William').
+2 **Expect**  mother(X, 'Prince William').
 3 not use:  mother(X, william).
 ```
 # Reference 
