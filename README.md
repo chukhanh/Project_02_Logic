@@ -39,11 +39,11 @@ swipl Project02_Logic_Task01.pl
 ```
 Test the program by enter the query in follow:
 query: query(X, Upcase) or query(X, 'String');
-*mother(X, William).
-* ==(Expect)==  mother(X, 'Prince William').
-*not use:  mother(X, william).
+1 mother(X, William).
+2 **(Expect)**  mother(X, 'Prince William').
+3 not use:  mother(X, william).
 ```
-# ReferReference 
+# Reference 
 ## Task 01 Querying The Family
 [Prolog link] http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse1
 
