@@ -30,6 +30,7 @@ Follow link: https://www.swi-prolog.org/download/stable
 ```
 
 # Run the program
+To run task 01: Querying the Family
 ```
 cd Task01_Querying_The_Family 
 swipl Project02_Logic_Task01.pl 
@@ -37,10 +38,10 @@ swipl Project02_Logic_Task01.pl
 
 ```
 Test the program by enter the query in follow:
-mother(X, William).
-or mother(X, 'Prince William').
-not mother(X, william).
-=> query: queru(X, Upcase) or query(X, 'String');
+query: query(X, Upcase) or query(X, 'String');
+*mother(X, William).
+* ==(Expect)==  mother(X, 'Prince William').
+*not use:  mother(X, william).
 ```
 # ReferReference 
 ## Task 01 Querying The Family
